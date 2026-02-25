@@ -5,7 +5,8 @@ TARDIS is a UK-based medical insurance analytics project developed to analyze po
 
 The solution was designed to build a scalable Data Warehouse and deliver optimized business reports for strategic decision-making.
 
-🏗 Architecture
+🏗 Architecture:
+
 
 Source Systems (SQL Server / Excel / Flat Files)
 ⬇
@@ -33,7 +34,9 @@ T-SQL (Stored Procedures, Views, Functions)
 
 TFS (Deployment & Version Control)
 
-🗂 Data Model
+🗂 Data Model:
+
+
 Dimension Tables
 
 Policy
@@ -58,7 +61,8 @@ Deduction
 
 Star schema implemented for optimized analytical querying.
 
-⚙ Responsibilities
+⚙ Responsibilities:
+
 
 Developed 30+ SSIS packages for full and incremental loads
 
@@ -76,7 +80,8 @@ Designed Power BI dashboards with business KPIs
 
 Deployed SSIS packages using ISPAC & SSIS Catalog
 
-📊 Key Business KPIs
+📊 Key Business KPIs:
+
 
 Branch-wise Revenue
 
@@ -94,7 +99,8 @@ Claim Settlement Trends
 
 Bottom Performing Branches
 
-🚀 Business Value
+🚀 Business Value:
+
 
 Enabled trend analysis for policy renewals and revenue growth
 
