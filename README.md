@@ -18,6 +18,9 @@ SSAS Tabular Model (Aggregation Layer)
 ⬇
 Power BI & SSRS Reports
 
+
+
+
 🛠 Tools & Technologies
 
 SQL Server
@@ -34,8 +37,11 @@ T-SQL (Stored Procedures, Views, Functions)
 
 TFS (Deployment & Version Control)
 
-🗂 Data Model:
 
+
+
+
+🗂 Data Model:
 
 Dimension Tables
 
@@ -61,8 +67,12 @@ Deduction
 
 Star schema implemented for optimized analytical querying.
 
-⚙ Responsibilities:
 
+
+
+
+
+⚙ Responsibilities:
 
 Developed 30+ SSIS packages for full and incremental loads
 
@@ -80,8 +90,13 @@ Designed Power BI dashboards with business KPIs
 
 Deployed SSIS packages using ISPAC & SSIS Catalog
 
-📊 Key Business KPIs:
 
+
+
+
+
+
+📊 Key Business KPIs:
 
 Branch-wise Revenue
 
@@ -99,8 +114,13 @@ Claim Settlement Trends
 
 Bottom Performing Branches
 
-🚀 Business Value:
 
+
+
+
+
+
+🚀 Business Value:
 
 Enabled trend analysis for policy renewals and revenue growth
 
