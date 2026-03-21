@@ -1,0 +1,922 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/13/2025 10:32:24 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IR63RJ5"
+  DTS:CreatorName="DESKTOP-IR63RJ5\DELL"
+  DTS:DTSID="{481AE176-EB00-4E01-ABEC-6A9A41C96DB5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_LoadTransactionType"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{4AC8B292-0601-4F47-9A99-9D1CAE5D44AA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Dest_Tardis_Stage"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{082AEF39-1AEB-4F8D-857D-A934A2C3B719}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+    <DTS:LogProvider
+      DTS:CreationName="Microsoft.LogProviderEventLog"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:DTSID="{28C4BC97-E25B-4324-808C-E794BC82C8DC}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{497CA275-A631-4814-BA88-36370BC39D4A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Rowcount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{082AEF39-1AEB-4F8D-857D-A934A2C3B719}" />
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{28C4BC97-E25B-4324-808C-E794BC82C8DC}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5AD48E31-C92E-4BC8-8E58-2D3C4E66BA40}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79487BA4-FF50-4E16-AF8D-A115C186DC2D}"
+          SQLTask:SqlStatementSource=" truncate table Stage_TransactionType&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading data to Stage TransactionType"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{018BFA2C-1666-4B01-932D-3D6D47DAF39D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading data to Stage TransactionType"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading data to Stage TransactionType\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stage_TransactionType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{79487BA4-FF50-4E16-AF8D-A115C186DC2D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dest_Tardis_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateExpired]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateExpired"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentYN]"
+                      cachedDataType="bool"
+                      cachedName="CurrentYN"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystemID]"
+                      cachedDataType="i4"
+                      cachedName="SourceSystemID"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                      cachedDataType="i4"
+                      cachedName="BatchID"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeID]"
+                      cachedDataType="i4"
+                      cachedName="TransactionTypeID"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TransactionTypeCode"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionTypeDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TransactionTypeDescription"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeDescription]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeID]"
+                      dataType="i4"
+                      name="TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TransactionTypeDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading data to Stage TransactionType\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TransactionType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{AC1B5EA4-65A5-4925-9296-2E7F7CBBF2AC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Source_TARDIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      name="DateExpired"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      name="CurrentYN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      name="SourceSystemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeID]"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeID]"
+                      name="TransactionTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeCode]"
+                      length="20"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeCode]"
+                      name="TransactionTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeDescription]"
+                      length="50"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionTypeDescription]"
+                      name="TransactionTypeDescription"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeID]"
+                      dataType="i4"
+                      name="TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TransactionTypeDescription" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeID]"
+                      name="TransactionTypeID" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeCode]"
+                      name="TransactionTypeCode" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionTypeDescription]"
+                      name="TransactionTypeDescription" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      name="DateExpired" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      name="CurrentYN" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      name="SourceSystemID" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading data to Stage TransactionType\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Rowcount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading data to Stage TransactionType\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage TransactionType\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Loading data to Stage TransactionType\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading data to Stage TransactionType.Paths[OLE DB Source Output]"
+              endId="Package\Loading data to Stage TransactionType\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Loading data to Stage TransactionType\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Loading data to Stage TransactionType.Paths[Row Count Output 1]"
+              endId="Package\Loading data to Stage TransactionType\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Loading data to Stage TransactionType\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Logging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{44E57641-5A75-49F8-A1FF-30FA3B3846DE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Logging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79487BA4-FF50-4E16-AF8D-A115C186DC2D}"
+          SQLTask:SqlStatementSource="insert into SSIS_Logs values (?,getdate(),?,'SuccessFull','Package Executed Successfully.')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Rowcount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{93174C83-E50C-4E0F-91B4-CB0A2D197C61}"
+      DTS:From="Package\Loading data to Stage TransactionType"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Logging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3493C829-169C-4E1C-BE31-74650B7546A4}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loading data to Stage TransactionType" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="147.499994138877,84.6000006405513" />
+        <NodeLayout
+          Size="260,41.6"
+          Id="Package\Loading data to Stage TransactionType"
+          TopLeft="356.33331939247,213.500001653036" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Logging"
+          TopLeft="225.833324359523,325.000002582868" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="486.33331939247,255.100001653036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-202.899995032947,69.900000929832"
+              Start="0,0"
+              End="-202.899995032947,62.400000929832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.950000464916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.950000464916"
+                    Point2="0,34.950000464916"
+                    Point3="-4,34.950000464916" />
+                  <mssgle:LineSegment
+                    End="-198.899995032947,34.950000464916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-198.899995032947,34.950000464916"
+                    Point2="-202.899995032947,34.950000464916"
+                    Point3="-202.899995032947,38.950000464916" />
+                  <mssgle:LineSegment
+                    End="-202.899995032947,62.400000929832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="229.899994138877,126.200000640551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="256.433325253593,87.3000010124847"
+              Start="0,0"
+              End="256.433325253593,79.8000010124847">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6500005062424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6500005062424"
+                    Point2="0,43.6500005062424"
+                    Point3="4,43.6500005062424" />
+                  <mssgle:LineSegment
+                    End="252.433325253593,43.6500005062424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="252.433325253593,43.6500005062424"
+                    Point2="256.433325253593,43.6500005062424"
+                    Point3="256.433325253593,47.6500005062424" />
+                  <mssgle:LineSegment
+                    End="256.433325253593,79.8000010124847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loading data to Stage TransactionType">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Loading data to Stage TransactionType\OLE DB Source"
+          TopLeft="249.166656765673,71.0666672314538" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Loading data to Stage TransactionType\Row Count"
+          TopLeft="314.999987483025,185.466668140623" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Loading data to Stage TransactionType\OLE DB Destination"
+          TopLeft="242.499990363916,269.533335475392" />
+        <EdgeLayout
+          Id="Package\Loading data to Stage TransactionType.Paths[OLE DB Source Output]"
+          TopLeft="325.166656765673,112.666667231454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.6333307173519,72.8000009091695"
+              Start="0,0"
+              End="54.6333307173519,65.3000009091695">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4000004545847" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.4000004545847"
+                    Point2="0,36.4000004545847"
+                    Point3="4,36.4000004545847" />
+                  <mssgle:LineSegment
+                    End="50.6333307173519,36.4000004545847" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.6333307173519,36.4000004545847"
+                    Point2="54.6333307173519,36.4000004545847"
+                    Point3="54.6333307173519,40.4000004545847" />
+                  <mssgle:LineSegment
+                    End="54.6333307173519,65.3000009091695" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading data to Stage TransactionType.Paths[Row Count Output 1]"
+          TopLeft="379.799987483025,227.066668140623">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.6999971191091,42.4666673347686"
+              Start="0,0"
+              End="-51.6999971191091,34.9666673347686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333336673843"
+                    Point2="0,21.2333336673843"
+                    Point3="-4,21.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-47.6999971191091,21.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.6999971191091,21.2333336673843"
+                    Point2="-51.6999971191091,21.2333336673843"
+                    Point3="-51.6999971191091,25.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-51.6999971191091,34.9666673347686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading data to Stage TransactionType\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading data to Stage TransactionType\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

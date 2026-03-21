@@ -1,0 +1,979 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/13/2025 10:32:24 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IR63RJ5"
+  DTS:CreatorName="DESKTOP-IR63RJ5\DELL"
+  DTS:DTSID="{A6F6A011-705A-4CA1-8469-629656321BB6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_LoadPolicySection"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{0D1BF676-BF4A-49FA-A75E-9296C1B1778F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dest_Tardis_Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E2BB24F2-8FED-4A2A-8698-669EBC359429}"
+      DTS:ObjectName="Dest_Tardis_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-IR63RJ5;Initial Catalog=Tardis_Stage;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Stage_LoadPolicy-{E2BB24F2-8FED-4A2A-8698-669EBC359429}DESKTOP-IR63RJ5.Tardis_Stage;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4CBA82D5-BF30-4A86-9F4C-96789F6D71B3}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Tardis\OLTP\Section.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source_TARDIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CB11DB07-8957-4453-9F92-EAB40EC4AC50}"
+      DTS:ObjectName="Source_TARDIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-IR63RJ5;Initial Catalog=TARDIS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Stage_LoadPolicy-{CB11DB07-8957-4453-9F92-EAB40EC4AC50}DESKTOP-IR63RJ5.TARDIS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Dest_Tardis_Stage"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{9CFE9542-3648-472D-B122-72F6D0E2EC62}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B643CCE0-DCF3-4724-AA6D-31D513151F02}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Rowcount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{9CFE9542-3648-472D-B122-72F6D0E2EC62}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7744948C-CE32-4E69-8C9E-A65D3C47B6D4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E2BB24F2-8FED-4A2A-8698-669EBC359429}"
+          SQLTask:SqlStatementSource=" truncate table Stage_PolicySection&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading data to Stage PolicySection"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B50DEC78-3861-4E49-8466-5A6A2B05613F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading data to Stage PolicySection"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading data to Stage PolicySection\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Section data$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading data to Stage PolicySection\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      name="SectionKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[PolicyKey]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]"
+                      name="PolicyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionLongName]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]"
+                      name="SectionLongName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedLinePercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]"
+                      name="SignedLinePercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedOrderPercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]"
+                      name="SignedOrderPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenOrderPercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]"
+                      name="WrittenOrderPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTypeCode]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]"
+                      name="SectionTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionSubTypeCode]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]"
+                      name="SectionSubTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTitle]"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]"
+                      name="SectionTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[Section Seq]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]"
+                      name="Section Seq"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[PolicyKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="PolicyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionLongName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionLongName" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedLinePercentage]"
+                      dataType="r8"
+                      name="SignedLinePercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedOrderPercentage]"
+                      dataType="r8"
+                      name="SignedOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      name="WrittenOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionSubTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[Section Seq]"
+                      dataType="r8"
+                      name="Section Seq" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      name="SectionKey" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[PolicyKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[PolicyKey]"
+                      name="PolicyKey" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionLongName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionLongName]"
+                      name="SectionLongName" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedLinePercentage]"
+                      dataType="r8"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedLinePercentage]"
+                      name="SignedLinePercentage" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedOrderPercentage]"
+                      dataType="r8"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedOrderPercentage]"
+                      name="SignedOrderPercentage" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenOrderPercentage]"
+                      name="WrittenOrderPercentage" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTypeCode]"
+                      name="SectionTypeCode" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionSubTypeCode]"
+                      name="SectionSubTypeCode" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTitle]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTitle]"
+                      name="SectionTitle" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[Section Seq]"
+                      dataType="r8"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[Section Seq]"
+                      name="Section Seq" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading data to Stage PolicySection\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stage_PolicySection]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Dest_Tardis_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dest_Tardis_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SectionKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionKey"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PolicyKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PolicyKey"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyKey]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SectionLongName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionLongName"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionLongName]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SignedLinePercentage]"
+                      cachedDataType="r8"
+                      cachedName="SignedLinePercentage"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedLinePercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SignedOrderPercentage]"
+                      cachedDataType="r8"
+                      cachedName="SignedOrderPercentage"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedOrderPercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WrittenOrderPercentage]"
+                      cachedDataType="r8"
+                      cachedName="WrittenOrderPercentage"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenOrderPercentage]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SectionTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionTypeCode"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTypeCode]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SectionSubTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionSubTypeCode"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSubTypeCode]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SectionTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionTitle"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTitle]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]" />
+                    <inputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Section Seq]"
+                      cachedDataType="r8"
+                      cachedName="Section Seq"
+                      externalMetadataColumnId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Section Seq]"
+                      lineageId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="PolicyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionLongName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionLongName" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedLinePercentage]"
+                      dataType="r8"
+                      name="SignedLinePercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedOrderPercentage]"
+                      dataType="r8"
+                      name="SignedOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      name="WrittenOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionSubTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Section Seq]"
+                      dataType="r8"
+                      name="Section Seq" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading data to Stage PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading data to Stage PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading data to Stage PolicySection\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Rowcount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading data to Stage PolicySection\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading data to Stage PolicySection\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Loading data to Stage PolicySection\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading data to Stage PolicySection.Paths[Excel Source Output]"
+              endId="Package\Loading data to Stage PolicySection\Row Count.Inputs[Row Count Input 1]"
+              name="Excel Source Output"
+              startId="Package\Loading data to Stage PolicySection\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Loading data to Stage PolicySection.Paths[Row Count Output 1]"
+              endId="Package\Loading data to Stage PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\Loading data to Stage PolicySection\Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Logging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6A1738D5-7E41-442F-A2D8-9C2B1FEEBBFD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Logging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E2BB24F2-8FED-4A2A-8698-669EBC359429}"
+          SQLTask:SqlStatementSource="insert into SSIS_Logs values (?,getdate(),?,'SuccessFull','Package Executed Successfully.')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::Rowcount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{29485F97-B41A-446F-B3DB-03CCEC0028A6}"
+      DTS:From="Package\Loading data to Stage PolicySection"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Logging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{096C1D7E-2ED5-4325-9D46-C49AFE6A78CA}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loading data to Stage PolicySection" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="147.499994138877,84.6000006405513" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\Loading data to Stage PolicySection"
+          TopLeft="356.33331939247,213.500001653036" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Logging"
+          TopLeft="225.833324359523,325.000002582868" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="479.13331939247,255.100001653036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.699995032947,69.900000929832"
+              Start="0,0"
+              End="-195.699995032947,62.400000929832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.950000464916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.950000464916"
+                    Point2="0,34.950000464916"
+                    Point3="-4,34.950000464916" />
+                  <mssgle:LineSegment
+                    End="-191.699995032947,34.950000464916" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.699995032947,34.950000464916"
+                    Point2="-195.699995032947,34.950000464916"
+                    Point3="-195.699995032947,38.950000464916" />
+                  <mssgle:LineSegment
+                    End="-195.699995032947,62.400000929832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="229.899994138877,126.200000640551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="249.233325253593,87.3000010124847"
+              Start="0,0"
+              End="249.233325253593,79.8000010124847">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6500005062424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.6500005062424"
+                    Point2="0,43.6500005062424"
+                    Point3="4,43.6500005062424" />
+                  <mssgle:LineSegment
+                    End="245.233325253593,43.6500005062424" />
+                  <mssgle:CubicBezierSegment
+                    Point1="245.233325253593,43.6500005062424"
+                    Point2="249.233325253593,43.6500005062424"
+                    Point3="249.233325253593,47.6500005062424" />
+                  <mssgle:LineSegment
+                    End="249.233325253593,79.8000010124847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loading data to Stage PolicySection">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Loading data to Stage PolicySection\Row Count"
+          TopLeft="314.999987483025,185.466668140623" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Loading data to Stage PolicySection\OLE DB Destination"
+          TopLeft="242.499990363916,269.533335475392" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Loading data to Stage PolicySection\Excel Source"
+          TopLeft="280.83332217402,89.2666673760944" />
+        <EdgeLayout
+          Id="Package\Loading data to Stage PolicySection.Paths[Row Count Output 1]"
+          TopLeft="379.799987483025,227.066668140623">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.6999971191091,42.4666673347686"
+              Start="0,0"
+              End="-51.6999971191091,34.9666673347686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2333336673843"
+                    Point2="0,21.2333336673843"
+                    Point3="-4,21.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-47.6999971191091,21.2333336673843" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.6999971191091,21.2333336673843"
+                    Point2="-51.6999971191091,21.2333336673843"
+                    Point3="-51.6999971191091,25.2333336673843" />
+                  <mssgle:LineSegment
+                    End="-51.6999971191091,34.9666673347686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading data to Stage PolicySection.Paths[Excel Source Output]"
+          TopLeft="350.83332217402,130.866667376094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.9666653090052,54.6000007645286"
+              Start="0,0"
+              End="28.9666653090052,47.1000007645286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3000003822643" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3000003822643"
+                    Point2="0,27.3000003822643"
+                    Point3="4,27.3000003822643" />
+                  <mssgle:LineSegment
+                    End="24.9666653090052,27.3000003822643" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.9666653090052,27.3000003822643"
+                    Point2="28.9666653090052,27.3000003822643"
+                    Point3="28.9666653090052,31.3000003822643" />
+                  <mssgle:LineSegment
+                    End="28.9666653090052,47.1000007645286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading data to Stage PolicySection\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading data to Stage PolicySection\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
