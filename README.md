@@ -17,15 +17,11 @@ Data Warehouse and optimized BI reports.
 
 ## 🏗️ Architecture
 
-Source Systems (SQL Server / Excel / Flat Files)
-⬇
-Staging Layer (SSIS ETL Processing)
-⬇
-Enterprise Data Warehouse (Star Schema)
-⬇
-SSAS Tabular Model (Aggregation Layer)
-⬇
-Power BI & SSRS Reports
+- Source Systems (SQL Server / Excel / Flat Files)
+- Staging Layer (SSIS ETL Processing)
+- Enterprise Data Warehouse (Star Schema)
+- SSAS Tabular Model (Aggregation Layer)
+- Power BI & SSRS Reports
 
 ---
 
