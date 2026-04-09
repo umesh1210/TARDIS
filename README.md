@@ -32,7 +32,7 @@ Data Warehouse and optimized BI reports.
 | SQL Server (T-SQL) | Data extraction, stored procedures & views |
 | SSIS | ETL development & incremental loads |
 | SSAS Tabular Model | Aggregation & performance optimization |
-| SSRS | Operational reporting (100+ reports) |
+| SSRS | Operational reporting (40+ reports) |
 | Power BI | Interactive dashboards & KPI tracking |
 | TFS | Version control & deployment |
 
