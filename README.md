@@ -8,10 +8,10 @@ Data Warehouse and optimized BI reports.
 
 ## 🎯 Project Objectives
 
-- Build a scalable Data Warehouse using Star Schema modeling
+- Build a scalable Data Warehouse using Star Schema modeling.
 - Develop ETL pipelines to load data from multiple source systems
 - Enable strategic decision-making through Power BI & SSRS reporting
-- Optimize aggregation and query performance using SSAS Tabular Model
+- Optimize aggregation and query performance using SSAS Tabular Model Cube.
 
 ---
 
