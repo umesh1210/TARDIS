@@ -81,4 +81,4 @@ Data Warehouse and optimized BI reports.
 - Enabled trend analysis for policy renewals and revenue growth
 - Improved reporting performance using SSAS aggregation layer
 - Provided strategic insights for branch and broker performance
-- Processed 30–40 million monthly records across multiple source systems
+- Processed 30–40K monthly records across multiple source systems
